@@ -9,6 +9,10 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-ENV DEBIAN_FRONTEND=dialog
+ARG USERNAME=vscode
+RUN mkdir -p /workspace && chown -R $USERNAME:$USERNAME /workspace
 
+USER $USERNAME
+
+ENV DEBIAN_FRONTEND=dialog
 
