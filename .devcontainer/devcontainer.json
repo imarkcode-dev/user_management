@@ -1,6 +1,11 @@
 {
   "name": "User Management - Java-Spring Boot",
-  "dockerComposeFile": "../docker-compose.yml",
+  "image": "mcr.microsoft.com/devcontainers/java:17",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
   "customizations": {
@@ -13,8 +18,16 @@
         "redhat.vscode-yaml"
       ],
       "settings": {
+        "java.home": "/usr/lib/jvm/msopenjdk-current",
         "java.configuration.updateBuildConfiguration": "interactive",
-        "maven.executable.preferMavenWrapper": true
+        "maven.executable.preferMavenWrapper": true,
+        "[java]": {
+          "editor.defaultFormatter": "redhat.java",
+          "editor.formatOnSave": true
+        },
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": false
+        }
       }
     }
   },
