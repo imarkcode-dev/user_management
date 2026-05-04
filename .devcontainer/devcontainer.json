@@ -4,7 +4,7 @@
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/postgresql:1": {
-      "version": "14",
+      "version": "16",
       "installPsql": true
     }
   },
