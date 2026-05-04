@@ -34,22 +34,10 @@
   "postCreateCommand": "mvn clean install -DskipTests",
   "postStartCommand": "mvn clean package -DskipTests",
   "containerEnv": {
-     "BD_URL": "jdbc:postgresql://postgres:5432/user_management_db?ssl=false",
-     "DB_USERNAME": "developer",
-     "DB_PASSWORD": "devjava2026",
-     "PORT": "8181"
-  },
-  "services": {
-    "db": {
-        "image": "postgres:16",
-        "restart": "always",
-        "environment": {
-            "POSTGRES_USER": "developer",
-            "POSTGRES_PASSWORD": "devjava2026",
-            "POSTGRES_DB": "user_management_db"
-        },
-     "ports":["5432:5432"]
-    }
+    "BD_URL": "jdbc:postgresql://db:5432/user_management_db?ssl=false",
+    "DB_USERNAME": "developer",
+    "DB_PASSWORD": "devjava2026",
+    "PORT": "8181"
   },
   "forwardPorts": [8181, 5432],
   "portsAttributes": {
@@ -64,6 +52,8 @@
   },
   "remoteUser": "vscode",
   "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.m2,target=/home/vscode/.m2,type=bind,consistency=cached"
-  ]
+    "source=${localEnv:HOME}/.m2,target=/home/vscode/.m2,type=bind,consistency=cached"
+  ],
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app"
 }
