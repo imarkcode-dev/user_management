@@ -8,9 +8,10 @@ services:
     volumes:
       - .:/workspace:cached
     environment:
-      - DB_URL=jdbc:postgresql://db:5432/user_management_db
+      - DB_URL=jdbc:postgresql://db:5432/user_management_db?ssl=false
       - DB_USERNAME=developer
       - DB_PASSWORD=devjava2026
+      - PORT=8181
     depends_on:
       db:
         condition: service_healthy

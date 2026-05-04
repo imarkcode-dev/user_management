@@ -1,5 +1,5 @@
 {
-  "name": "User Management - Java-Spring Boot",
+  "name": "User Management - Java",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
@@ -11,11 +11,7 @@
         "vscjava.vscode-lombok",
         "ms-azuretools.vscode-docker",
         "redhat.vscode-yaml"
-      ],
-      "settings": {
-        "java.configuration.updateBuildConfiguration": "interactive",
-        "maven.executable.preferMavenWrapper": true
-      }
+      ]
     }
   },
   "remoteUser": "vscode",
