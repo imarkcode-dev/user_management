@@ -34,7 +34,7 @@
   "postCreateCommand": "mvn clean install -DskipTests",
   "postStartCommand": "mvn clean package -DskipTests",
   "containerEnv": {
-     "BD_URL": "jdbc:postgresql://db:5432/user_management_db?ssl=false}",
+     "BD_URL": "jdbc:postgresql://postgres:5432/user_management_db?ssl=false}",
      "DB_USERNAME": "developer",
      "DB_PASSWORD": "devjava2026",
      "PORT": "8181"
