@@ -2,8 +2,11 @@
   "name": "User Management - Spring Boot",
   "image": "mcr.microsoft.com/devcontainers/java:17",
   "features": {
-    /*"ghcr.io/devcontainers/features/docker-in-docker:2": {},*/
-    "ghcr.io/devcontainers/features/git:1": {}
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/postgresql:1": {
+      "version": "14",
+      "installPsql": true
+    }
   },
   "customizations": {
     "vscode": {
@@ -54,6 +57,5 @@
   "mounts": [
     "source=${localEnv:HOME}/.m2,target=/home/vscode/.m2,type=bind,consistency=cached"
   ],
-  /*"dockerComposeFile": "docker-compose.yml",*/
   "service": "app"
 }
