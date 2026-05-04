@@ -8,7 +8,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "Extension Pack for Java",
+        "vscjava.vscode-java-pack",
         "vscjava.vscode-maven",
         "vscjava.vscode-spring-boot-dashboard",
         "vscjava.vscode-lombok",
@@ -34,19 +34,19 @@
   "postCreateCommand": "mvn clean install -DskipTests",
   "postStartCommand": "mvn clean package -DskipTests",
   "containerEnv": {
-     "BD_URL": "jdbc:postgresql://postgres:5432/user_management_db?ssl=false}",
+     "BD_URL": "jdbc:postgresql://postgres:5432/user_management_db?ssl=false",
      "DB_USERNAME": "developer",
      "DB_PASSWORD": "devjava2026",
      "PORT": "8181"
   },
   "services": {
     "db": {
-        "image": "postgres:17",
+        "image": "postgres:16",
         "restart": "always",
-        "enviroment": {
-            "POSTGRESQL_USER": "developer",
-            "POSTGRESQL_PASSWORD": "devjava2026",
-            "POSTGRESQL_DB": "user_management_db"
+        "environment": {
+            "POSTGRES_USER": "developer",
+            "POSTGRES_PASSWORD": "devjava2026",
+            "POSTGRES_DB": "user_management_db"
         },
      "ports":["5432:5432"]
     }
