@@ -31,5 +31,5 @@
 
   "forwardPorts": [8181, 5432],
   
-  "postCreateCommand": "apt update && apt install -y postgresql-client && mvn clean install -DskipTests"
+  "postCreateCommand": "sudo apt update && apt install -y postgresql-client && mvn clean install -DskipTests"
 }
