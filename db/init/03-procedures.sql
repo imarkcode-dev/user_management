@@ -1,4 +1,4 @@
-DROP FUNCTION public.fn_create_login(int4, varchar, varchar);
+DROP FUNCTION fn_create_login(int4, varchar, varchar);
 
 CREATE OR REPLACE FUNCTION fn_create_login(p_user_id integer, p_username character varying, p_password character varying)
  RETURNS boolean
