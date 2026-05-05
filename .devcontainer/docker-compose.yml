@@ -7,6 +7,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - .:/workspace:cached
+    command: sleep infinity
     tty: true
     stdin_open: true
     environment:

@@ -12,6 +12,7 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
 ARG USERNAME=vscode
 RUN mkdir -p /workspace && chown -R $USERNAME:$USERNAME /workspace
 
+WORKDIR /workspace
 USER $USERNAME
 
 ENV DEBIAN_FRONTEND=dialog
