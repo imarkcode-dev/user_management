@@ -3,6 +3,7 @@ version: '3.8'
 services:
   app:
     image: mcr.microsoft.com/devcontainers/java:17
+    working_dir: /workspace
     volumes:
       - .:/workspace:cached
     depends_on:
@@ -23,7 +24,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
       - ./db/init:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U developer"]
+      test: ["CMD-SHELL", "pg_isready -U developer -d user_management_db"]
       interval: 5s
       retries: 5
 
