@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: .devcontainer/Dockerfile
+    tty: true
+    stdin_open: true
+    command: /bin/sh -c "while sleep 1000; do :; done"
     volumes:
       - .:/workspace:cached
     environment:
@@ -23,8 +26,6 @@ services:
       POSTGRES_USER: developer
       POSTGRES_PASSWORD: devjava2026
       POSTGRES_DB: user_management_db
-    ports:
-      - "5432:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U developer -d user_management_db"]
       interval: 5s
