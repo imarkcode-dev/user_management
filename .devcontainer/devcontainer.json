@@ -3,7 +3,6 @@
   "dockerComposeFile": "../docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
-  "shutdownAction": "stopCompose",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -16,6 +15,6 @@
     }
   },
   "remoteUser": "vscode",
-  "postCreateCommand": "mvn clean install -DskipTests",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y postgresql-client && mvn clean install -DskipTests",
   "forwardPorts": [8181, 5432]
 }
