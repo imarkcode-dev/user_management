@@ -1,20 +1,32 @@
 {
-  "name": "User Management - Java",
-  "dockerComposeFile": "../docker-compose.yml",
+  "name": "User Management - Spring Boot",
+  "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
+
   "customizations": {
     "vscode": {
       "extensions": [
         "vscjava.vscode-java-pack",
+        "vscjava.vscode-maven",
         "vscjava.vscode-spring-boot-dashboard",
         "vscjava.vscode-lombok",
         "ms-azuretools.vscode-docker",
+        "eamodio.gitlens",
+        "sonarsource.sonarlint-vscode",
         "redhat.vscode-yaml"
       ]
     }
   },
-  "remoteUser": "vscode",
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y postgresql-client && mvn clean install -DskipTests",
-  "forwardPorts": [8181, 5432]
+
+  "containerEnv": {
+    "DB_URL": "jdbc:postgresql://db:5432/user_management_db",
+    "DB_USERNAME": "developer",
+    "DB_PASSWORD": "devjava2026",
+    "PORT": "8181"
+  },
+
+  "forwardPorts": [8181, 5432],
+
+  "postCreateCommand": "mvn clean install -DskipTests"
 }
