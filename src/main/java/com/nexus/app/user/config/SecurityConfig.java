@@ -33,7 +33,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-            .cors(cors -> {})  // Enable CORS
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))  // Enable CORS
             // Disable CSRF protection for API requests
             .csrf(csrf -> csrf.disable())
             // Configure authorization rules
@@ -57,13 +57,14 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of(
-            "http://localhost:4200",
+        config.setAllowedOriginPatterns(List.of(
+             "http://localhost:4200",
              "https://*.app.github.dev"
-        )); // Angular
+        )); 
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
+        config.setExposedHeaders(List.of("Authorization"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
