@@ -1,0 +1,23 @@
+
+sudo apt update
+sudo apt install -y postgresql-client
+
+
+ps aux | grep postgres
+env | grep DB_URL
+psql --version
+
+psql -h db -U developer -d user_management_db
+
+
+SELECT version();
+
+\df fn_*
+
+
+SELECT version();
+
+
+Reiniciar DB:
+docker compose down -v
+docker compose up -d
