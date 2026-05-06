@@ -44,8 +44,12 @@ public class SecurityConfig {
                     "/swagger-ui/**",
                     "/swagger-ui.html"
                 ).permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
                 // Allow public access to API endpoints
-                .requestMatchers("/api/**").permitAll()
+                .requestMatchers(
+                    "/api/**",
+                    "/api/v1/auth/**"
+                ).permitAll()
                 // All other requests require authentication
                 .anyRequest().authenticated()
             );
@@ -61,6 +65,7 @@ public class SecurityConfig {
              "http://localhost:4200",
              "https://*.app.github.dev"
         )); 
+
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With", "Accept"));
         config.setExposedHeaders(List.of("Authorization"));
