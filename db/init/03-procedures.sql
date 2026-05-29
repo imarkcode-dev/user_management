@@ -5,8 +5,8 @@ CREATE OR REPLACE FUNCTION fn_create_login(p_user_id integer, p_username charact
  LANGUAGE plpgsql
 AS $function$
 BEGIN
-    INSERT INTO login (user_id, username, password_hash)
-    VALUES (p_user_id, p_username, crypt(p_password, gen_salt('bf')));
+    INSERT INTO login (user_id, username, password_hash,active,created_at,updated_at)
+    VALUES (p_user_id, p_username, crypt(p_password, gen_salt('bf')),true,now(),now());
 
     RETURN TRUE;
 

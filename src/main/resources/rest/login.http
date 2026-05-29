@@ -8,9 +8,9 @@ POST {{baseUrl}}/register
 Content-Type: {{contentType}}
 
 {
-  "userId": 2,
-  "username": "luke",
-  "password": "luke123"
+  "userId": 1,
+  "username": "vader",
+  "password": "dark123"
 }
 
 
