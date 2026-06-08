@@ -69,5 +69,33 @@ This module provides the REST controller for managing the employee lifecycle wit
 
 * **Successful Response:** `204 No Content`
 
+
+## Authentication and Security Module
+
+This module provides the REST controller to manage system access, enabling credential registration and user authentication on the platform.
+
+### Technical Configuration
+* **Controller:** `LoginController`
+* **Package:** `com.nexus.app.user.controller`
+* **Base Path:** `/api/v1/auth`
+
+### API Endpoints
+
+#### 1. Register Access Credentials
+* **Method:** `POST`
+* **Path:** `/api/v1/auth/register`
+* **Description:** Creates a new credential record (username/password) in the system to allow future access.
+
+* **Request Body:** `LoginCreateDTO` (Validated with `@Valid`)
+* **Successful Response:** `201 Created` (No content in the body)
+
+#### 2. Login (Authentication)
+* **Method:** `POST`
+* **Path:** `/api/v1/auth/login`
+* **Description:** Validates the user's credentials and generates the necessary login credentials for the session.
+
+* **Request Body:** `LoginRequestDTO` (Validated with `@Valid`)
+* **Successful Response:** `200 OK` -> `LoginResponseDTO`
+
 ## Swagger
 http://localhost:8181/swagger-ui/index.html
