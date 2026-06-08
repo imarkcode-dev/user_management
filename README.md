@@ -99,3 +99,7 @@ This module provides the REST controller to manage system access, enabling crede
 
 ## Swagger
 http://localhost:8181/swagger-ui/index.html
+
+## App Run
+
+mvn spring-boot:run
